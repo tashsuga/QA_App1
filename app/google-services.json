@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "181352552393",
+    "firebase_url": "https://qaapp1-cfb4e.firebaseio.com",
+    "project_id": "qaapp1-cfb4e",
+    "storage_bucket": "qaapp1-cfb4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181352552393:android:2ae5fcdb99b8a204",
+        "android_client_info": {
+          "package_name": "com.onespan.takeshisugai.qa_app1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "181352552393-l6rpteak3gk48krhesk67rdreq8aljq6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxhLLNvUs3LJAOsJ7p2HZl06buhpw2Xk8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
