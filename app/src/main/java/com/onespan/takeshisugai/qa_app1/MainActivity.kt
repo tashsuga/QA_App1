@@ -5,6 +5,10 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import android.content.Intent
+import android.support.v7.widget.Toolbar
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -15,9 +19,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        // --- ここから ---
+        val fab = findViewById<FloatingActionButton>(R.id.fab)
+        fab.setOnClickListener { _ ->
+            // ログイン済みのユーザーを取得する
+            val user = FirebaseAuth.getInstance().currentUser
+
+            // ログインしていなければログイン画面に遷移させる
+            if (user == null) {
+                val intent = Intent(applicationContext, LoginActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        // --- ここまで修正 ---
+        /*
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+                */
         }
     }
 
