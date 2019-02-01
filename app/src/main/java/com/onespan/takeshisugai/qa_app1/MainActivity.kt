@@ -17,10 +17,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 
-//import com.google.firebase.auth.FirebaseUser
 
-
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
 
@@ -84,7 +81,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
                 .setAction("Action", null).show()
                 */
         }
-    
+
     // }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -93,6 +90,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         return true
     }
 
+    /*
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -102,6 +100,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             else -> super.onOptionsItemSelected(item)
         }
     }
+*/
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
@@ -125,4 +124,16 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         return true
     }
 
+    // 2nd/Feb added
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        if (id == R.id.action_settings) {
+            val intent = Intent(applicationContext, SettingActivity::class.java)
+            startActivity(intent)
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
 }
