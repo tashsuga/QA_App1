@@ -22,14 +22,13 @@ import android.support.v7.app.ActionBarDrawerToggle
 
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
+class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var mToolbar: Toolbar
     private var mGenre = 0
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-
+    //override fun onCreate(savedInstanceState: Bundle?) {
 
 
         /*
@@ -54,7 +53,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
                     startActivity(intent)
                 }
             }
-        /*
+            /*
         // --- ここから ---
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener { _ ->
@@ -69,23 +68,24 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         }
         */
 
-        // ナビゲーションドロワーの設定
-        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-        val toggle = ActionBarDrawerToggle(this, drawer, mToolbar, R.string.app_name, R.string.app_name)
-        drawer.addDrawerListener(toggle)
-        toggle.syncState()
+            // ナビゲーションドロワーの設定
+            val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
+            val toggle = ActionBarDrawerToggle(this, drawer, mToolbar, R.string.app_name, R.string.app_name)
+            drawer.addDrawerListener(toggle)
+            toggle.syncState()
 
-        val navigationView = findViewById<NavigationView>(R.id.nav_view)
-        navigationView.setNavigationItemSelectedListener(this)
+            val navigationView = findViewById<NavigationView>(R.id.nav_view)
+            navigationView.setNavigationItemSelectedListener(this)
 
-        // --- ここまで修正 ---
-        /*
+            // --- ここまで修正 ---
+            /*
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
                 */
-    }
-   // }
+        }
+    
+    // }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -102,6 +102,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             else -> super.onOptionsItemSelected(item)
         }
     }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
 
