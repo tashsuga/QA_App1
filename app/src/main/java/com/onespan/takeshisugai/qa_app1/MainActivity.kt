@@ -24,6 +24,7 @@ import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import android.util.Base64  //追加する
+import android.widget.ListView
 
 
 class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
@@ -122,7 +123,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     }
     // --- ここまで追加する ---
 
-        override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
             mToolbar = findViewById(R.id.toolbar)
@@ -145,10 +146,18 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
                     val intent = Intent(applicationContext, LoginActivity::class.java)
                     startActivity(intent)
                 } else {
+
                     // ジャンルを渡して質問作成画面を起動する
                     val intent = Intent(applicationContext, QuestionSendActivity::class.java)
                     intent.putExtra("genre", mGenre)
                     startActivity(intent)
+                /*
+                    // ジャンルを渡して質問作成画面を起動する
+                    val intent = Intent(applicationContext, QuestionSendActivity::class.java)
+                    intent.putExtra("genre", mGenre)
+                    startActivity(intent)
+
+                    */
                 }
             }
             // --- ここまで修正 ---
@@ -267,7 +276,15 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onResume() {
+        super.onResume()
+        val navigationView = findViewById<NavigationView>(R.id.nav_view)
 
+        // 1:趣味を既定の選択とする
+        if(mGenre == 0) {
+            onNavigationItemSelected(navigationView.menu.getItem(0))
+        }
+    }
 }
 
 
