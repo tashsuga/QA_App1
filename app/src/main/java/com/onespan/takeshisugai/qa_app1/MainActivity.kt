@@ -26,9 +26,6 @@ import com.google.firebase.database.FirebaseDatabase
 import android.util.Base64  //追加する
 
 
-import com.google.firebase.auth.FirebaseUser
-
-
 class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var mToolbar: Toolbar
