@@ -16,6 +16,8 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
+import com.google.firebase.auth.FirebaseUser
+import android.support.design.widget.Snackbar
 
 
 
@@ -40,6 +42,31 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             setSupportActionBar(mToolbar)
 
             val fab = findViewById<FloatingActionButton>(R.id.fab)
+            // --- ここから ---
+            fab.setOnClickListener { view ->
+                // ジャンルを選択していない場合（mGenre == 0）はエラーを表示するだけ
+                if (mGenre == 0) {
+                    Snackbar.make(view, "ジャンルを選択して下さい", Snackbar.LENGTH_LONG).show()
+                } else {
+
+                }
+                // ログイン済みのユーザーを取得する
+                val user = FirebaseAuth.getInstance().currentUser
+
+                if (user == null) {
+                    // ログインしていなければログイン画面に遷移させる
+                    val intent = Intent(applicationContext, LoginActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    // ジャンルを渡して質問作成画面を起動する
+                    val intent = Intent(applicationContext, QuestionSendActivity::class.java)
+                    intent.putExtra("genre", mGenre)
+                    startActivity(intent)
+                }
+            }
+            // --- ここまで修正 ---
+
+           /*
             fab.setOnClickListener { _ ->
                 // ログイン済みのユーザーを取得する
                 val user = FirebaseAuth.getInstance().currentUser
@@ -50,6 +77,8 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
                     startActivity(intent)
                 }
             }
+            */
+
             /*
         // --- ここから ---
         val fab = findViewById<FloatingActionButton>(R.id.fab)
@@ -125,6 +154,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     }
 
     // 2nd/Feb added
+    /*
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
 
@@ -136,4 +166,21 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
         return super.onOptionsItemSelected(item)
     }
+*/
+    // 2nd/Feb no2  added
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        if (id == R.id.action_settings) {
+            val intent = Intent(applicationContext, SettingActivity::class.java)
+            startActivity(intent)
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+
 }
+
+
