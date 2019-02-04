@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import android.widget.ListView
 
@@ -104,6 +105,29 @@ class QuestionDetailActivity : AppCompatActivity() {
                     .child(AnswersPATH)
         mAnswerRef.addChildEventListener(mEventListener)
     }
+
+    /*
+    this.button2.setOnClickListener {
+
+
+
+    }
+    */
+    //button2.setOnClickListener { Log.v(TAG, "clicked") }
+
+   this.button2.setOnClickListener {  View ->
+
+    }
+    /*
+    button2.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Log.v(TAG, "clicked");
+        }
+    });
+
+*/
+
     /*
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
