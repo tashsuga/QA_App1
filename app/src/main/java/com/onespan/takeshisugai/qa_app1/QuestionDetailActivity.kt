@@ -107,7 +107,57 @@ class QuestionDetailActivity : AppCompatActivity() {
 
 
         this.button2.setOnClickListener {  View ->
+            val user = FirebaseAuth.getInstance().currentUser  // ユーザー取得
+            var isFavorite = false
+            if (user == null) {
+                // ユーザーが取れない＝未ログインならボタン非表示
+                this.button2.visibility = View.GONE
+            } else {
+                // お気に入りのデータを取得する
+                FirebaseDatabase
+                    .getInstance()
+                    .reference
+                    .child(FavoritePATH)
+                    .child(user.uid)
+                    .child(mQuestion.uid)
+                    .addListenerForSingleValueEvent(object: ValueEventListener {
+                        override fun onCancelled(p0: DatabaseError) {
+                        }
 
+                        override fun onDataChange(p0: DataSnapshot) {
+                            // お気に入りがあった場合、テキストを解除に変更
+                            isFavorite = true
+                            this@QuestionDetailActivity.button2.text = "お気に入りを解除"
+                        }
+                    })
+
+                this.button2.setOnClickListener {
+                    if (isFavorite) {
+                        // すでにお気に入りなら、お気に入り解除処理をする
+                        FirebaseDatabase
+                            .getInstance()
+                            .reference
+                            .child(FavoritePATH)
+                            .child(user.uid)
+                            .child(mQuestion.uid)
+                            .removeValue()
+                        isFavorite = true
+                        this@QuestionDetailActivity.button2.text = "お気に入りに登録"
+                    } else {
+                        // お気に入りでなければ、お気に入りに登録する処理をする
+                        val data = HashMap<String, Int>()
+                        data["genre"] = mQuestion.genre
+                        FirebaseDatabase
+                            .getInstance()
+                            .reference
+                            .child(FavoritePATH)
+                            .child(user.uid)
+                            .child(mQuestion.uid)
+                            .push()
+                            .setValue(data)
+                    }
+                }
+            }
         }
     }
 
