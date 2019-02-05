@@ -104,6 +104,11 @@ class QuestionDetailActivity : AppCompatActivity() {
                 dataBaseReference.child(ContentsPATH).child(mQuestion.genre.toString()).child(mQuestion.questionUid)
                     .child(AnswersPATH)
         mAnswerRef.addChildEventListener(mEventListener)
+
+
+        this.button2.setOnClickListener {  View ->
+
+        }
     }
 
     /*
@@ -115,9 +120,7 @@ class QuestionDetailActivity : AppCompatActivity() {
     */
     //button2.setOnClickListener { Log.v(TAG, "clicked") }
 
-   this.button2.setOnClickListener {  View ->
 
-    }
     /*
     button2.setOnClickListener(new View.OnClickListener() {
         @Override
