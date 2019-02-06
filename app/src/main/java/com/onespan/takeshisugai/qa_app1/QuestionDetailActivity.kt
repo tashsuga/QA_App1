@@ -126,6 +126,10 @@ class QuestionDetailActivity : AppCompatActivity() {
                     //.child("./temp1")
                     .child(user.uid)
                     .child(mQuestion.uid)
+
+                //｀mDatabaseReference｀がFirebaseDatabaseのルートのリファレンスだとすると、
+                // ｀mDatabaseReference.child( ユーザ名 ).child( 質問ID ).push()｀ としてリファレンスを保存します。
+
                     .addListenerForSingleValueEvent(object: ValueEventListener {
                         override fun onCancelled(p0: DatabaseError) {
                         }
