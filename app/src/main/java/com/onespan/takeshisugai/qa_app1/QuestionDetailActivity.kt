@@ -24,8 +24,8 @@ class QuestionDetailActivity : AppCompatActivity() {
     private lateinit var mAdapter: QuestionDetailListAdapter
     private lateinit var mAnswerRef: DatabaseReference
 
-    private var FavoritePATH = "./temp1"
-
+    // private var FavoritePATH = "./temp1"
+    private var FavoritePATH = "temp1"
 
 
     private val mEventListener = object : ChildEventListener {
