@@ -127,6 +127,10 @@ class QuestionDetailActivity : AppCompatActivity() {
                     .child(user.uid)
                     .child(mQuestion.uid)
 
+                //val dataBaseReference2 = FirebaseDatabase.getInstance().reference
+                dataBaseReference.child(user.uid).child(mQuestion.uid).push()
+
+
                 //｀mDatabaseReference｀がFirebaseDatabaseのルートのリファレンスだとすると、
                 // ｀mDatabaseReference.child( ユーザ名 ).child( 質問ID ).push()｀ としてリファレンスを保存します。
 
