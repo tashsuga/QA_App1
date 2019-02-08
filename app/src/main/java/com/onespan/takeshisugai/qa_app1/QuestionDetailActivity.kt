@@ -127,6 +127,7 @@ class QuestionDetailActivity : AppCompatActivity() {
                     .child(user.uid)
                     .child(mQuestion.uid)
 
+                // added by T. Sugai, 8th/Feb
                 //val dataBaseReference2 = FirebaseDatabase.getInstance().reference
                 dataBaseReference.child(user.uid).child(mQuestion.uid).push()
 
