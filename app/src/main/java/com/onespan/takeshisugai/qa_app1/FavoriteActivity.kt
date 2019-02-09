@@ -41,6 +41,18 @@ class FavoriteActivity : AppCompatActivity()  {
 
     private val mEventListener = object : ChildEventListener {
 
+        override fun onCancelled(p0: DatabaseError) {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun onChildMoved(p0: DataSnapshot, p1: String?) {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun onChildRemoved(p0: DataSnapshot) {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
         override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
             val map = dataSnapshot.value as Map<String, String>
             val title = map["title"] ?: ""
@@ -122,6 +134,10 @@ class FavoriteActivity : AppCompatActivity()  {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        // →まず、onCreate関数を作成してください。
+        //　次にその中で、mEventListenerを呼び出す処理を書いてください
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mToolbar = findViewById(R.id.toolbar)
@@ -178,6 +194,22 @@ class FavoriteActivity : AppCompatActivity()  {
             intent.putExtra("question", mQuestionArrayList[position])
             startActivity(intent)
         }
+
+     /* 10th added by T. Sugai  */
+        // --- ここから ---
+        // 質問のリストをクリアしてから再度Adapterにセットし、AdapterをListViewにセットし直す
+        mQuestionArrayList.clear()
+        mAdapter.setQuestionArrayList(mQuestionArrayList)
+        mListView.adapter = mAdapter
+
+        // 選択したジャンルにリスナーを登録する
+        if (mGenreRef != null) {
+            mGenreRef!!.removeEventListener(mEventListener)
+        }
+        mGenreRef = mDatabaseReference.child(ContentsPATH).child(mGenre.toString())
+        mGenreRef!!.addChildEventListener(mEventListener)
+        // --- ここまで追加する ---
+
     }
 
 
