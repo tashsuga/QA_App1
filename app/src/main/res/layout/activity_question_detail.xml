@@ -28,6 +28,16 @@
             android:layout_alignParentStart="true" android:layout_marginStart="19dp"
             android:id="@+id/button2"/>
 
+    <Button
+            android:text="質問一覧"
+            android:layout_width="104dp"
+            android:layout_height="88dp"
+            android:layout_marginStart="254dp"
+            android:id="@+id/button3" android:layout_marginTop="22dp" android:layout_alignParentStart="false"
+            android:autoText="false"/>
+
+
+
     <ListView
             android:layout_width="395dp"
             android:layout_height="501dp"
