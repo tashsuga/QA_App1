@@ -22,29 +22,29 @@
             -->
     <Button
             android:text="お気に入り"
-            android:layout_width="104dp"
-            android:layout_height="88dp"
+            android:layout_width="106dp"
+            android:layout_height="68dp"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" android:layout_marginStart="19dp"
-            android:id="@+id/button2"/>
+            android:layout_alignParentStart="true" android:layout_marginStart="46dp"
+            android:id="@+id/button2" android:layout_marginTop="33dp"/>
 
     <Button
             android:text="質問一覧"
-            android:layout_width="104dp"
-            android:layout_height="88dp"
-            android:layout_marginStart="254dp"
-            android:id="@+id/button3" android:layout_marginTop="22dp" android:layout_alignParentStart="false"
-            android:autoText="false"/>
-
+            android:layout_width="153dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="70dp"
+            android:id="@+id/button3" android:layout_marginTop="36dp"
+            android:autoText="false" android:layout_alignParentTop="true" android:layout_toEndOf="@+id/button2"/>
 
 
     <ListView
-            android:layout_width="395dp"
-            android:layout_height="501dp"
+            android:layout_width="350dp"
+            android:layout_height="496dp"
             android:id="@+id/listView"
             android:layout_alignParentTop="@+id/button2"
             android:layout_alignParentStart="true" android:layout_marginStart="16dp" android:layout_marginTop="78dp"
-            android:layout_alignParentBottom="true" android:layout_marginBottom="51dp"/>
+            android:layout_alignParentBottom="true" android:layout_marginBottom="51dp"
+            android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
 
     <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
