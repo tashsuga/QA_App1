@@ -25,16 +25,8 @@
             android:layout_width="106dp"
             android:layout_height="68dp"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" android:layout_marginStart="46dp"
-            android:id="@+id/button2" android:layout_marginTop="33dp"/>
-
-    <Button
-            android:text="質問一覧"
-            android:layout_width="153dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="70dp"
-            android:id="@+id/button3" android:layout_marginTop="36dp"
-            android:autoText="false" android:layout_alignParentTop="true" android:layout_toEndOf="@+id/button2"/>
+            android:layout_alignParentStart="true" android:layout_marginStart="20dp"
+            android:id="@+id/button2" android:layout_marginTop="20dp"/>
 
 
     <ListView
