@@ -231,6 +231,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onResume()
         val navigationView = findViewById<NavigationView>(R.id.nav_view)
 
+        if (FirebaseAuth.getInstance().currentUser==null)
+        {navigationView.menu.findItem(R.id.nav_favorite).isVisible = false}
+        else
+        {navigationView.menu.findItem(R.id.nav_favorite).isVisible = true  }
+
+
         // 1:趣味を既定の選択とする
         if(mGenre == 0) {
             onNavigationItemSelected(navigationView.menu.getItem(0))
