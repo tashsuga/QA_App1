@@ -36,6 +36,7 @@ class FavoriteActivity : AppCompatActivity()  {
     private var mGenreRef: DatabaseReference? = null
 
     private val mEventListener = object : ChildEventListener {
+
         override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
             val map = dataSnapshot.value as Map<String, String>
             val title = map["title"] ?: ""

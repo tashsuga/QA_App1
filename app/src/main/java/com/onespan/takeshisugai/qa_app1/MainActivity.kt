@@ -228,7 +228,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             mToolbar.title = "お気に入り　"
             mGenre = 5
 
-            // tivFavoriteActivity の処理
+            // FavoriteActivity の処理
             val intent = Intent(applicationContext, FavoriteActivity::class.java)
             startActivity(intent)
         }
