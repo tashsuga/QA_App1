@@ -127,7 +127,8 @@ class FavoriteActivity : AppCompatActivity()  {
         mToolbar = findViewById(R.id.toolbar)
         setSupportActionBar(mToolbar)
 
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
+        //val fab = findViewById<FloatingActionButton>(R.id.fab)
+        /*
         fab.setOnClickListener { view ->
             // ジャンルを選択していない場合（mGenre == 0）はエラーを表示するだけ
             if (mGenre == 0) {
@@ -149,7 +150,7 @@ class FavoriteActivity : AppCompatActivity()  {
                 startActivity(intent)
             }
         }
-
+*/
         // ナビゲーションドロワーの設定
         /*
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
