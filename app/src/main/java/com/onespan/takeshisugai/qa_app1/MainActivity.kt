@@ -224,6 +224,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             mToolbar.title = "コンピューター"
             mGenre = 4
         }
+        else if (id == R.id.nav_favorite) {
+            mToolbar.title = "お気に入り　"
+            mGenre = 5
+        }
+
+
 
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
         drawer.closeDrawer(GravityCompat.START)
