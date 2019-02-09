@@ -114,60 +114,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         }
     }
-    // --- ここまで追加する ---
 
-    /*
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        mToolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(mToolbar)
-
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
-        fab.setOnClickListener { view ->
-            // ジャンルを選択していない場合（mGenre == 0）はエラーを表示するだけ
-            if (mGenre == 0) {
-                Snackbar.make(view, "ジャンルを選択して下さい", Snackbar.LENGTH_LONG).show()
-            } else {
-
-            }
-            // ログイン済みのユーザーを取得する
-            val user = FirebaseAuth.getInstance().currentUser
-
-            if (user == null) {
-                // ログインしていなければログイン画面に遷移させる
-                val intent = Intent(applicationContext, LoginActivity::class.java)
-                startActivity(intent)
-            } else {
-                // ジャンルを渡して質問作成画面を起動する
-                val intent = Intent(applicationContext, QuestionSendActivity::class.java)
-                intent.putExtra("genre", mGenre)
-                startActivity(intent)
-            }
-        }
-
-        // ナビゲーションドロワーの設定
-        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-        val toggle = ActionBarDrawerToggle(this, drawer, mToolbar, R.string.app_name, R.string.app_name)
-        drawer.addDrawerListener(toggle)
-        toggle.syncState()
-
-        val navigationView = findViewById<NavigationView>(R.id.nav_view)
-        navigationView.setNavigationItemSelectedListener(this)
-
-        // --- ここから ---
-        // Firebase
-        mDatabaseReference = FirebaseDatabase.getInstance().reference
-
-        // ListViewの準備
-        mListView = findViewById(R.id.listView)
-        mAdapter = QuestionsListAdapter(this)
-        mQuestionArrayList = ArrayList<Question>()
-        mAdapter.notifyDataSetChanged()
-        // --- ここまで追加する ---
-    }
-*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
