@@ -130,6 +130,8 @@ class FavoriteActivity : AppCompatActivity()  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
+        lateinit var mQuestion: Question
+
         // →まず、onCreate関数を作成してください。
         //　次にその中で、mEventListenerを呼び出す処理を書いてください
 
@@ -226,10 +228,28 @@ class FavoriteActivity : AppCompatActivity()  {
         // --- ここまで追加する ---
 */
 
-        // adviced by <Mr. Hori
-        mGenreRef = mDatabaseReference.child(FavoritePATH).child(mGenreRef.toString())
-        mGenreRef!!.addChildEventListener(mEventListener)
+        // ログイン済みのユーザーを取得する
+        val user = FirebaseAuth.getInstance().currentUser
 
+        if (user == null) {
+            // ログインしていなければログイン画面に遷移させる
+            val intent = Intent(applicationContext, LoginActivity::class.java)
+            startActivity(intent)
+        } else {
+            // ジャンルを渡して質問作成画面を起動する
+            //val intent = Intent(applicationContext, QuestionSendActivity::class.java)
+            //intent.putExtra("genre", mGenre)
+            //startActivity(intent)
+        }
+
+
+
+        // adviced by Mr. Hori
+        // mGenreRef = mDatabaseReference.child(FavoritePATH).child(mGenreRef.toString())
+       // mGenreRef = mDatabaseReference.child(FavoritePATH).child(user!!.uid).child(mQuestion.uid)
+       // mGenreRef!!.addChildEventListener(mEventListener)
+
+           // .child(user.uid)
 
 
 
