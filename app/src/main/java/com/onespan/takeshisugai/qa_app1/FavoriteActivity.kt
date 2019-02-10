@@ -144,8 +144,10 @@ class FavoriteActivity : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite) //これは必要でしょうか？
        // setContentView(R.layout.activity_main)
-        mToolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(mToolbar)
+
+        // deleted 1oth/Feb.
+        // mToolbar = findViewById(R.id.toolbar)
+        // setSupportActionBar(mToolbar)
 
 
         /*
