@@ -131,19 +131,19 @@ class FavoriteActivity : AppCompatActivity()  {
         // →まず、onCreate関数を作成してください。
         //　次にその中で、mEventListenerを呼び出す処理を書いてください
 
-     /*
+
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_question_detail)
+        setContentView(R.layout.activity_favorite)
 
         // 渡ってきたQuestionのオブジェクトを保持する
         val extras = intent.extras
 
-        */
+
 
         // activity_favorite.
       //  super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite) //これは必要でしょうか？
-        setContentView(R.layout.activity_main)
+       //  setContentView(R.layout.activity_main)
 
         // deleted 1oth/Feb.
         // mToolbar = findViewById(R.id.toolbar)
