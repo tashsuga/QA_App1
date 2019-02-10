@@ -210,6 +210,7 @@ class FavoriteActivity : AppCompatActivity()  {
 
      /* 10th added by T. Sugai  */
 
+        /*
         // --- ここから ---
         // 質問のリストをクリアしてから再度Adapterにセットし、AdapterをListViewにセットし直す
         mQuestionArrayList.clear()
@@ -223,12 +224,12 @@ class FavoriteActivity : AppCompatActivity()  {
         mGenreRef = mDatabaseReference.child(ContentsPATH).child(mGenre.toString())
         mGenreRef!!.addChildEventListener(mEventListener)
         // --- ここまで追加する ---
+*/
 
-        /*
         // adviced by <Mr. Hori
         mGenreRef = mDatabaseReference.child(FavoritePATH).child(mGenreRef.toString())
         mGenreRef!!.addChildEventListener(mEventListener)
-    */
+
 
 
 
