@@ -141,8 +141,8 @@ class FavoriteActivity : AppCompatActivity()  {
         */
 
         // activity_favorite.
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_favorite) //これは必要でしょうか？
+      //  super.onCreate(savedInstanceState)
+       //  setContentView(R.layout.activity_favorite) //これは必要でしょうか？
        // setContentView(R.layout.activity_main)
 
         // deleted 1oth/Feb.
