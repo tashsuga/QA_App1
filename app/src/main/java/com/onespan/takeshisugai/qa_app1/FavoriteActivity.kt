@@ -24,6 +24,8 @@ class FavoriteActivity : AppCompatActivity()  {
     private lateinit var mToolbar: Toolbar
     private var mGenre = 0
 
+    private var FavoritePATH = "temp1"
+
     // --- ここから ---
     private lateinit var mDatabaseReference: DatabaseReference
     private lateinit var mListView: ListView
@@ -133,7 +135,7 @@ class FavoriteActivity : AppCompatActivity()  {
 
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_favorite)
+        setContentView(R.layout.activity_favorite) //これは必要でしょうか？
 
         // 渡ってきたQuestionのオブジェクトを保持する
         val extras = intent.extras
@@ -142,7 +144,7 @@ class FavoriteActivity : AppCompatActivity()  {
 
         // activity_favorite.
       //  super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_favorite) //これは必要でしょうか？
+      //  setContentView(R.layout.activity_favorite) //これは必要でしょうか？
        //  setContentView(R.layout.activity_main)
 
         // deleted 1oth/Feb.
@@ -221,6 +223,14 @@ class FavoriteActivity : AppCompatActivity()  {
         mGenreRef = mDatabaseReference.child(ContentsPATH).child(mGenre.toString())
         mGenreRef!!.addChildEventListener(mEventListener)
         // --- ここまで追加する ---
+
+        /*
+        // adviced by <Mr. Hori
+        mGenreRef = mDatabaseReference.child(FavoritePATH).child(mGenreRef.toString())
+        mGenreRef!!.addChildEventListener(mEventListener)
+    */
+
+
 
     }
 
