@@ -2,29 +2,22 @@ package com.onespan.takeshisugai.qa_app1
 
 //package jp.techacademy.taro.kirameki.qa_app
 
-import android.content.Context
+
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.util.Base64
-import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.ListView
 
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_login.*
 
-import java.util.HashMap
+import kotlinx.android.synthetic.main.activity_favorite.*
+
+
+import com.google.firebase.database.*
 
 class FavoriteActivity : AppCompatActivity()  {
 
@@ -42,15 +35,15 @@ class FavoriteActivity : AppCompatActivity()  {
     private val mEventListener = object : ChildEventListener {
 
         override fun onCancelled(p0: DatabaseError) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         }
 
         override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         }
 
         override fun onChildRemoved(p0: DataSnapshot) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+           // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         }
 
         override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
@@ -138,17 +131,31 @@ class FavoriteActivity : AppCompatActivity()  {
         // →まず、onCreate関数を作成してください。
         //　次にその中で、mEventListenerを呼び出す処理を書いてください
 
+     /*
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_question_detail)
+
+        // 渡ってきたQuestionのオブジェクトを保持する
+        val extras = intent.extras
+
+        */
+
+        // activity_favorite.
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_favorite) //これは必要でしょうか？
+       // setContentView(R.layout.activity_main)
         mToolbar = findViewById(R.id.toolbar)
         setSupportActionBar(mToolbar)
 
-        //val fab = findViewById<FloatingActionButton>(R.id.fab)
+
         /*
+        val fab = findViewById<FloatingActionButton>(R.id.fab)
+
+
         fab.setOnClickListener { view ->
             // ジャンルを選択していない場合（mGenre == 0）はエラーを表示するだけ
             if (mGenre == 0) {
-                Snackbar.make(view, "ジャンルを選択して下さい", Snackbar.LENGTH_LONG).show()
+                //Snackbar.make(view, "ジャンルを選択して下さい", Snackbar.LENGTH_LONG).show()
             } else {
 
             }
@@ -166,7 +173,7 @@ class FavoriteActivity : AppCompatActivity()  {
                 startActivity(intent)
             }
         }
-*/
+  */
         // ナビゲーションドロワーの設定
         /*
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
@@ -175,8 +182,10 @@ class FavoriteActivity : AppCompatActivity()  {
         toggle.syncState()
      */
 
-        val navigationView = findViewById<NavigationView>(R.id.nav_view)
-            // 9th/Fev
+     //   val navigationView = findViewById<NavigationView>(R.id.nav_view)
+
+
+        // 9th/Fev
         // navigationView.NavigationItemSelectedListener(this)
 
         // Firebase
@@ -196,6 +205,7 @@ class FavoriteActivity : AppCompatActivity()  {
         }
 
      /* 10th added by T. Sugai  */
+
         // --- ここから ---
         // 質問のリストをクリアしてから再度Adapterにセットし、AdapterをListViewにセットし直す
         mQuestionArrayList.clear()
