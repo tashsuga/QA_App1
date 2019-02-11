@@ -1,4 +1,4 @@
-/*
+
 
 package com.onespan.takeshisugai.qa_app1
 
@@ -178,9 +178,11 @@ class QuestionDetailActivity : AppCompatActivity() {
 
 
 }
-*/
 
 
+/*
+
+// Mr. Nizaki adviced
 
 package com.onespan.takeshisugai.qa_app1
 
@@ -359,3 +361,4 @@ class QuestionDetailActivity : AppCompatActivity() {
 
 
 }
+*/
