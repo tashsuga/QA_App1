@@ -306,8 +306,8 @@ class QuestionDetailActivity : AppCompatActivity() {
                 .reference
                 .child(FavoritePATH)
                 .child(user.uid)
-                .child(mQuestion.uid)
-
+               // .child(mQuestion.uid) // 13th/Feb/2019  advised by Mori
+                .child(mQuestion.questionUid)
             // 2019/02/11 E.Nozaki 下記に、「お気に入り」ボタンが押された時に呼び出される処理をセットしておきます。
 
             this.button2.setOnClickListener {

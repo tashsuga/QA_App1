@@ -318,7 +318,9 @@ class FavoriteActivity : AppCompatActivity()  {
 
         for(question in mQuestionArrayList_All) {
 
-            if(mFavoriteQuestionIDs.contains(question.uid)) { // 2019/02/12 E.Nozaki この質問が「お気に入り」に登録されているかどうかをチェック。
+            // 13th/Feb advised by m¥Mori
+           // if(mFavoriteQuestionIDs.contains(question.uid)) { // 2019/02/12 E.Nozaki この質問が「お気に入り」に登録されているかどうかをチェック。
+            if(mFavoriteQuestionIDs.contains(question.questionUid)){
                 mQuestionArrayList_Favorite.add(question)
             }
         }
